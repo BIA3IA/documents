@@ -19,10 +19,9 @@ polinetwork-document/
 ├── assets/                        # Logo e elementi grafici
 │   ├── Logo.png / Logo.svg        # Logo PoliNetwork
 │   └── *.svg                      # Elementi decorativi
-├── documents/                     # Documenti sorgente
-│   ├── about/
-│   ├── privacy-policy-recruitment/
-│   └── ...
+├── documents/                     # Documenti sorgente reali
+│   ├── PoliNetwork.tex
+│   └── informativa-privacy-recruitment.tex
 ├── output/                        # PDF compilati (generata da make)
 ├── Makefile                       # Compilazione automatica
 └── README.md
@@ -57,8 +56,8 @@ Tutti i PDF verranno creati comodamente all'interno della cartella `output/`.
 
 ### Come creare un nuovo tipo di documento
 
-1. Crea una nuova cartella dentro `documents/` (es. `documents/nuovo-progetto`)
-2. Crea il tuo file `.tex` e usa `\documentclass[legal]{polinetwork}`
+1. Crea il tuo file `.tex` dentro `documents/` (es. `documents/nuovo-progetto.tex`)
+2. Nel file aggiungi `\documentclass[legal]{polinetwork}` come preambolo
 3. Aggiungi il nuovo documento al `Makefile` seguendo gli esempi già presenti
 4. Esegui `make [nuovo-documento]` dalla root
 

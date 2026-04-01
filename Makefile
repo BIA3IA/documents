@@ -47,7 +47,7 @@ help: ## Mostra questo aiuto
 	@echo ""
 	@echo "  Documenti:"
 	@echo "    make privacy-recruitment    Privacy policy recruitment"
-	@echo "    make about                  Cos'è PoliNetwork"
+	@echo "    make polinetwork            Cos'è PoliNetwork (versione pubblica)"
 	@echo ""
 	@echo "  Utility:"
 	@echo "    make all                    Compila tutti i documenti"
@@ -62,17 +62,18 @@ help: ## Mostra questo aiuto
 # =====================================================================
 
 privacy-recruitment: ## Privacy policy per il recruitment
-	$(call compile,documents/privacy-policy-recruitment,privacy-policy-recruitment)
+	$(call compile,documents,informativa-privacy-recruitment)
 
-about: ## Cos'è PoliNetwork
-	$(call compile,documents/about,about-polinetwork)
+pubblica: polinetwork # alias
+polinetwork: ## Cos'è PoliNetwork
+	$(call compile,documents,PoliNetwork)
 
 # --- Aggiungi qui nuovi documenti ---
 # esempio:
 # privacy-sito: ## Privacy policy del sito web
-# 	$(call compile,documents/privacy-policy-sito,privacy-policy-sito)
+# 	$(call compile,documents,privacy-policy-sito)
 
-all: privacy-recruitment about ## Compila tutti i documenti
+all: privacy-recruitment polinetwork ## Compila tutti i documenti
 
 # =====================================================================
 # PULIZIA

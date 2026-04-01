@@ -4,61 +4,19 @@
 % Da inserire nel linktree / link in bio / sito web
 % ============================================================
 
-\documentclass[11pt,a4paper]{article}
+\documentclass[letter]{polinetwork}
 
-% --- Pacchetti ---
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[italian]{babel}
-\usepackage{geometry}
-\geometry{margin=2.5cm}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue!70!black,
-    urlcolor=blue!70!black,
-    pdftitle={Cos'è PoliNetwork},
-    pdfauthor={PoliNetwork APS}
-}
-\usepackage{titlesec}
-\usepackage{parskip}
-\usepackage{xcolor}
-\usepackage{tabularx}
-\usepackage{booktabs}
-\usepackage{fancyhdr}
-
-% --- Colori ---
-\definecolor{pnblue}{HTML}{1A73E8}
-\definecolor{pngray}{HTML}{5F6368}
-\definecolor{pnlight}{HTML}{E8F0FE}
-
-% --- Header/Footer ---
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\textcolor{pngray}{\small PoliNetwork APS}}
-\fancyhead[R]{\textcolor{pngray}{\small Versione pubblica}}
-\fancyfoot[C]{\textcolor{pngray}{\small \thepage}}
-\renewcommand{\headrulewidth}{0.4pt}
-
-% --- Titoli ---
-\titleformat{\section}
-  {\Large\bfseries\color{pnblue}}{\thesection}{1em}{}
-\titleformat{\subsection}
-  {\large\bfseries\color{pnblue!80!black}}{\thesubsection}{1em}{}
-
-% --- Inizio documento ---
 \begin{document}
 
-% === TITOLO ===
-\begin{center}
-    {\Huge\bfseries\textcolor{pnblue}{PoliNetwork}}\\[0.5em]
-    {\Large\textcolor{pngray}{Di studenti, per studenti.}}\\[1.5em]
-    {\large Associazione di Promozione Sociale}\\[0.3em]
-    {\normalsize Ente del Terzo Settore $\cdot$ Indipendente dal Politecnico di Milano}\\[2em]
-    \rule{0.5\textwidth}{0.5pt}
-\end{center}
+\pnMakeHeader
 
+\begin{center}
+    {\Huge\color{pn-text}\headlinefont\textbf{PoliNetwork}}\\[0.5em]
+    {\Large\color{pn-text-secondary}Di studenti, per studenti.}\\[1.5em]
+    {\large\color{pn-primary}\textbf{Associazione di Promozione Sociale}}\\[0.3em]
+    {\normalsize\color{pn-text-secondary}Ente del Terzo Settore $\cdot$ Indipendente dal Politecnico di Milano}\\[1em]
+\end{center}
+\pnRule
 \vspace{1em}
 
 % === CHI SIAMO ===
@@ -146,7 +104,7 @@ dell'associazione e acquisire competenze concrete.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.6}
-\begin{tabularx}{\textwidth}{>{\bfseries\color{pnblue}}l X}
+\begin{tabularx}{\textwidth}{>{\bfseries\color{pn-primary}}l X}
 \toprule
 \textbf{Team} & \textbf{Di cosa si occupa} \\
 \midrule
@@ -257,9 +215,9 @@ La quota associativa è simbolica (5\euro{}/anno) e include:
 
 \begin{center}
     \rule{0.3\textwidth}{0.5pt}\\[1em]
-    \textcolor{pngray}{\small PoliNetwork APS — Ente del Terzo Settore}\\
-    \textcolor{pngray}{\small Sede legale: Milano}\\
-    \textcolor{pngray}{\small Tutti i progetti software sono rilasciati con licenza open source}
+    \textcolor{pn-text-secondary}{\small PoliNetwork APS — Ente del Terzo Settore}\\
+    \textcolor{pn-text-secondary}{\small Sede legale: Milano}\\
+    \textcolor{pn-text-secondary}{\small Tutti i progetti software sono rilasciati con licenza open source}
 \end{center}
 
 \end{document}

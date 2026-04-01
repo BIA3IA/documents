@@ -49,6 +49,7 @@
 
 % Font support (XeLaTeX / LuaLaTeX)
 \RequirePackage{fontspec}
+\RequirePackage{eurosym}
 \RequirePackage{unicode-math}
 
 % Typography
