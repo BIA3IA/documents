@@ -17,8 +17,8 @@
 *.snm
 *.vrb
 
-# Generated PDFs (keep examples/)
-# documents/**/*.pdf
+# Output generato
+output/
 
 # OS
 .DS_Store

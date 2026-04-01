@@ -19,6 +19,7 @@ XELATEX_FLAGS = -interaction=nonstopmode -halt-on-error
 
 # Root directory (per TEXINPUTS)
 ROOT_DIR := $(shell pwd)
+OUT_DIR := $(ROOT_DIR)/output
 
 # TEXINPUTS permette a XeLaTeX di trovare i file .cls, .sty, font e assets
 # ovunque si compili — è la "magia" che tiene tutto collegato
@@ -27,9 +28,10 @@ TEXINPUTS_VAL = $(ROOT_DIR)/core:$(ROOT_DIR):
 # Macro per compilare un documento (2 passate per riferimenti corretti)
 # Uso: $(call compile,<directory>,<filename senza .tex>)
 define compile
-	cd $(1) && TEXINPUTS="$(TEXINPUTS_VAL)" $(XELATEX) $(XELATEX_FLAGS) $(2).tex
-	cd $(1) && TEXINPUTS="$(TEXINPUTS_VAL)" $(XELATEX) $(XELATEX_FLAGS) $(2).tex
-	@echo "✓ Generato: $(1)/$(2).pdf"
+	@mkdir -p $(OUT_DIR)
+	cd $(1) && TEXINPUTS="$(TEXINPUTS_VAL)" $(XELATEX) $(XELATEX_FLAGS) -output-directory="$(OUT_DIR)" $(2).tex
+	cd $(1) && TEXINPUTS="$(TEXINPUTS_VAL)" $(XELATEX) $(XELATEX_FLAGS) -output-directory="$(OUT_DIR)" $(2).tex
+	@echo "✓ Generato: output/$(2).pdf"
 endef
 
 # =====================================================================
@@ -83,5 +85,5 @@ clean: ## Rimuovi file ausiliari
 	@echo "✓ File ausiliari rimossi"
 
 clean-pdf: clean ## Rimuovi anche i PDF generati
-	find documents -name '*.pdf' -delete 2>/dev/null || true
-	@echo "✓ PDF rimossi"
+	rm -rf $(OUT_DIR)/*.pdf 2>/dev/null || true
+	@echo "✓ PDF rimossi dalla cartella output"

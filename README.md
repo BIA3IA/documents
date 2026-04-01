@@ -19,12 +19,11 @@ polinetwork-document/
 ├── assets/                        # Logo e elementi grafici
 │   ├── Logo.png / Logo.svg        # Logo PoliNetwork
 │   └── *.svg                      # Elementi decorativi
-├── documents/                     # Template documenti (usa questi!)
-│   ├── privacy-policy/
-│   ├── terms-and-conditions/
-│   └── legal/
-├── examples/                      # Esempi compilati
-│   └── example-privacy-policy.tex
+├── documents/                     # Documenti sorgente
+│   ├── about/
+│   ├── privacy-policy-recruitment/
+│   └── ...
+├── output/                        # PDF compilati (generata da make)
 ├── Makefile                       # Compilazione automatica
 └── README.md
 ```
@@ -39,27 +38,29 @@ Su Arch Linux:
 sudo pacman -S texlive-basic texlive-latex texlive-latexextra texlive-fontsrecommended texlive-xetex
 ```
 
-## Come usare
+## Come compilare i documenti
 
-### 1. Compilare un esempio
+Per garantire che LaTeX trovi tutti i font e i colori, sconsigliamo di lanciare `xelatex` a mano nelle singole cartelle. Invece, usa il sistema `make` dalla directory principale:
 
 ```bash
-cd examples
-xelatex example-privacy-policy.tex
-xelatex example-privacy-policy.tex   # seconda passata per riferimenti
+# Compila tutti i documenti
+make all
+
+# Compila solo "Cos'è PoliNetwork"
+make about
+
+# Pulisci i file di log temporanei
+make clean
 ```
 
-Oppure dalla root:
-```bash
-make example-privacy
-```
+Tutti i PDF verranno creati comodamente all'interno della cartella `output/`.
 
-### 2. Creare un nuovo documento
+### Come creare un nuovo tipo di documento
 
-1. Copia un template da `documents/` nella posizione desiderata
-2. Modifica i campi nel preambolo (`\pnTitle`, `\pnDate`, ecc.)
-3. Incolla/scrivi il contenuto nel body
-4. Compila con `xelatex`
+1. Crea una nuova cartella dentro `documents/` (es. `documents/nuovo-progetto`)
+2. Crea il tuo file `.tex` e usa `\documentclass[legal]{polinetwork}`
+3. Aggiungi il nuovo documento al `Makefile` seguendo gli esempi già presenti
+4. Esegui `make [nuovo-documento]` dalla root
 
 ### 3. Comandi disponibili
 
@@ -114,9 +115,9 @@ make example-privacy
 ### 4. Opzioni della classe
 
 ```latex
-\documentclass[legal]{core/polinetwork}   % Documenti legali
-\documentclass[letter]{core/polinetwork}  % Lettere
-\documentclass[report]{core/polinetwork}  % Report con copertina
+\documentclass[legal]{polinetwork}   % Documenti legali numerati
+\documentclass[letter]{polinetwork}  % Lettere / Layout semplice
+\documentclass[report]{polinetwork}  % Include copertina frontale
 ```
 
 ## Palette colori
