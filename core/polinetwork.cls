@@ -102,10 +102,13 @@
   Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Variable,
+  BoldFont       = *-Variable,
   ItalicFont     = *-Variable-Italic,
-  BoldFeatures   = {RawFeature={weight=700}},
-  ItalicFeatures = {RawFeature={weight=400}},
-  BoldItalicFeatures = {RawFeature={weight=700}},
+  BoldItalicFont = *-Variable-Italic,
+  UprightFeatures= {RawFeature={axis={wght=400}}},
+  BoldFeatures   = {RawFeature={axis={wght=700}}},
+  ItalicFeatures = {RawFeature={axis={wght=400}}},
+  BoldItalicFeatures = {RawFeature={axis={wght=700}}},
 ]
 
 % Poppins — headlines & wordmark
@@ -125,8 +128,13 @@
   Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Variable,
+  BoldFont       = *-Variable,
   ItalicFont     = *-Variable-Italic,
-  BoldFeatures   = {RawFeature={weight=700}},
+  BoldItalicFont = *-Variable-Italic,
+  UprightFeatures= {RawFeature={axis={wght=400}}},
+  BoldFeatures   = {RawFeature={axis={wght=700}}},
+  ItalicFeatures = {RawFeature={axis={wght=400}}},
+  BoldItalicFeatures = {RawFeature={axis={wght=700}}},
 ]
 
 % Set main document fonts
@@ -134,10 +142,13 @@
   Path           = fonts/,
   Extension      = .ttf,
   UprightFont    = *-Variable,
+  BoldFont       = *-Variable,
   ItalicFont     = *-Variable-Italic,
-  BoldFeatures   = {RawFeature={weight=700}},
-  ItalicFeatures = {RawFeature={weight=400}},
-  BoldItalicFeatures = {RawFeature={weight=700}},
+  BoldItalicFont = *-Variable-Italic,
+  UprightFeatures= {RawFeature={axis={wght=400}}},
+  BoldFeatures   = {RawFeature={axis={wght=700}}},
+  ItalicFeatures = {RawFeature={axis={wght=400}}},
+  BoldItalicFeatures = {RawFeature={axis={wght=700}}},
 ]
 
 % Aliases for use in commands.sty
