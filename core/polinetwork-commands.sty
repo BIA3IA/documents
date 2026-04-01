@@ -126,29 +126,27 @@
   {\poppinsmedium\fontsize{#1}{#1}\selectfont\color{pn-primary}PoliNetwork}%
 }
 
-% Make the document header (clean, fixed style)
+
+
+% Make the document header (Awesome-CV Style)
 \newcommand{\pnMakeHeader}{%
-  \vspace*{-1cm} % pull up slightly
-  \noindent
-  \begin{minipage}[c]{0.12\textwidth}
-    \pnInsertLogo[1.8cm]
-  \end{minipage}%
-  \hspace{0.03\textwidth}%
-  \begin{minipage}[c]{0.85\textwidth}
-    \pnWordmark[26pt]\\[4pt]
+  \vspace*{-1.5cm} % pull up slightly
+  \begin{center}
+    \pnInsertLogo[2cm]\\[8pt]
+    \pnWordmark[34pt]\\[8pt]
     \ifthenelse{\equal{\pn@doctitle}{}}{}{%
-      {\large\color{pn-primary}\headlinefont\textbf{\pn@doctitle}}\\[2pt]
+      {\Large\color{pn-text}\headlinefont\textbf{\pn@doctitle}}\\[2pt]
     }%
     \ifthenelse{\equal{\pn@docsubtitle}{}}{}{%
-      {\normalsize\color{pn-text-secondary}\poppinsfont\pn@docsubtitle}\\[2pt]
+      {\normalsize\color{pn-text-secondary}\poppinsfont\pn@docsubtitle}\\[6pt]
     }%
     {\small\color{pn-text-secondary}\poppinsfont
-      \pn@website \quad|\quad \pn@email
+      \href{\pn@website}{\pn@website}
+      \quad\textbf{|}\quad
+      \href{mailto:\pn@email}{\pn@email}
     }
-  \end{minipage}%
-  \par\vspace{12pt}
-  {\color{pn-rule}\rule{\textwidth}{1.5pt}}
-  \par\vspace{16pt}
+  \end{center}
+  \vspace{16pt}
 }
 
 \newcommand{\pnClosing}[1][Cordiali saluti,]{%

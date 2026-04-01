@@ -179,24 +179,22 @@
 \RequirePackage{titlesec}
 
 % Section: blue bar + Poppins bold
+% Awesome-CV style sections: Primary color, bold, with a horizontal rule below
 \titleformat{\section}
   {\Large\poppinsfont\bfseries\color{pn-text}}
-  {\textcolor{pn-rule}{\rule[-2pt]{4pt}{16pt}}\hspace{8pt}\thesection\hspace{8pt}}
+  {\thesection\hspace{6pt}}
   {0pt}
-  {}
-  [\vspace{-4pt}]
+  {}[\vspace{-0.6em}{\color{pn-rule}\rule{\textwidth}{1pt}}]
 
-% Subsection: sky-700 + Poppins regular
 \titleformat{\subsection}
-  {\large\poppinsfont\color{pn-primary}}
-  {\thesubsection\hspace{8pt}}
+  {\large\poppinsfont\bfseries\color{pn-text-secondary}}
+  {\thesubsection\hspace{6pt}}
   {0pt}
   {}
 
-% Subsubsection: DM Sans bold
 \titleformat{\subsubsection}
-  {\normalsize\dmsansfont\bfseries\color{pn-text}}
-  {\thesubsubsection\hspace{8pt}}
+  {\normalsize\poppinsfont\bfseries\color{pn-text-secondary}}
+  {\thesubsubsection\hspace{6pt}}
   {0pt}
   {}
 
@@ -216,8 +214,10 @@
   topsep=4pt,
 }
 
+% Awesome-CV style itemize: simple clean bullet
 \setlist[itemize]{
-  label={\textcolor{pn-primary}{\textbullet}},
+  label={\footnotesize\textcolor{pn-primary}{\textbullet}},
+  leftmargin=2em
 }
 
 \setlist[enumerate]{
