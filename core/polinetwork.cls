@@ -169,6 +169,10 @@
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \onehalfspacing
 
+% Tolleranza per giustificazione testo (riduce Overfull \hbox)
+\tolerance=1000
+\emergencystretch=3em
+
 % Line color for body text
 \color{pn-text}
 
