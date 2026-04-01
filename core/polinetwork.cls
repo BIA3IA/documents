@@ -124,6 +124,11 @@
   FontFace       = {sb}{n}{*-SemiBold},
 ]
 
+\newfontfamily\poppinsmedium{Poppins-Medium}[
+  Path           = fonts/,
+  Extension      = .ttf,
+]
+
 % Red Hat Text — labels, captions, small text
 \newfontfamily\redhattextfont{RedHatText}[
   Path           = fonts/,
@@ -230,25 +235,20 @@
 \pagestyle{fancy}
 \fancyhf{} % clear defaults
 
-% First page: full header via \pnMakeHeader (called manually)
-% Subsequent pages: compact running header
-\fancyhead[L]{\pnMakeRunningHeader}
-\fancyhead[R]{%
-  \small\color{pn-text-muted}%
-  \ifthenelse{\equal{\pn@doctitle}{}}{}{\pn@doctitle}%
-}
-\fancyfoot[C]{%
-  \small\color{pn-text-muted}%
-  \pn@str@page~\thepage~\pn@str@of~\pageref*{LastPage}%
+% Footer on all pages
+\fancyfoot[L]{%
+  \raisebox{-0.3em}{\pnInsertLogo[0.45cm]}\hspace{4pt}%
+  \pnWordmark[10pt]%
 }
 \fancyfoot[R]{%
-  \footnotesize\color{pn-text-muted}%
-  \pn@associationname%
+  \footnotesize\poppinsfont\color{pn-text-secondary}%
+  \pn@str@page~\thepage~\pn@str@of~\pageref*{LastPage}%
 }
 
 % Rule styling
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\headrule}{\hbox to\headwidth{\color{pn-sky-300}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\footrule}{\vspace*{-8pt}\hbox to\headwidth{\color{pn-rule}\leaders\hrule height \footrulewidth\hfill}\vspace*{8pt}}
 \renewcommand{\footrulewidth}{0pt}
 
 % First page style: no running header

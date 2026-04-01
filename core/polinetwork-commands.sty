@@ -49,11 +49,6 @@
 
 \newcommand{\pnTitle}[1]{\renewcommand{\pn@doctitle}{#1}}
 \newcommand{\pnSubtitle}[1]{\renewcommand{\pn@docsubtitle}{#1}}
-\newcommand{\pnDate}[1]{\renewcommand{\pn@docdate}{#1}}
-\newcommand{\pnProtocol}[1]{\renewcommand{\pn@docprotocol}{#1}}
-\newcommand{\pnSubject}[1]{\renewcommand{\pn@docsubject}{#1}}
-\newcommand{\pnRecipient}[1]{\renewcommand{\pn@docrecipient}{#1}}
-\newcommand{\pnVersion}[1]{\renewcommand{\pn@docversion}{#1}}
 
 %% ========================================================================
 %% MULTILINGUAL SUPPORT (IT / EN)
@@ -126,142 +121,35 @@
   }%
 }
 
-% Wordmark: "PoliNetwork" in Poppins Medium with branded colors  
+% Wordmark: "PoliNetwork" in Poppins Medium with pn-primary color
 \newcommand{\pnWordmark}[1][16pt]{%
-  {%
-    \poppinsfont\fontsize{#1}{#1}\selectfont%
-    \textcolor{pn-primary}{\textbf{P}}%
-    \textcolor{pn-text}{oli}%
-    \textcolor{pn-primary}{\textbf{N}}%
-    \textcolor{pn-text}{etwork}%
-  }%
+  {\poppinsmedium\fontsize{#1}{#1}\selectfont\color{pn-primary}PoliNetwork}%
 }
 
-% Make the document header (logo + association name + contacts)
+% Make the document header (clean, fixed style)
 \newcommand{\pnMakeHeader}{%
+  \vspace*{-1cm} % pull up slightly
   \noindent
-  \begin{minipage}[c]{0.15\textwidth}
-    \pnInsertLogo[1.4cm]
+  \begin{minipage}[c]{0.12\textwidth}
+    \pnInsertLogo[1.8cm]
   \end{minipage}%
-  \hfill
-  \begin{minipage}[c]{0.55\textwidth}
-    \pnWordmark[18pt]\\[2pt]
-    {\small\color{pn-text-secondary}Associazione di Promozione Sociale}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[c]{0.25\textwidth}
-    \raggedleft
-    {\footnotesize\color{pn-text-secondary}%
-      \pn@email\\
-      \pn@website%
-    }
-  \end{minipage}
-  
-  \vspace{2pt}
-  {\color{pn-rule}\rule{\textwidth}{1.5pt}}
-  \vspace{8pt}
-}
-
-% Make a compact header for subsequent pages (used by fancyhdr)
-\newcommand{\pnMakeRunningHeader}{%
-  \pnInsertLogo[0.8cm]%
-  \hspace{6pt}%
-  \pnWordmark[11pt]%
-}
-
-%% ========================================================================
-%% DOCUMENT METADATA BLOCK
-%% ========================================================================
-
-\newcommand{\pnMakeMetadata}{%
-  \vspace{4pt}
-  \noindent
-  \begin{minipage}[t]{0.48\textwidth}
-    \ifthenelse{\equal{\pn@docrecipient}{}}{}{%
-      {\small\color{pn-text-muted}\pn@str@to}\\
-      {\normalsize\pn@docrecipient}\\[6pt]
-    }
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[t]{0.48\textwidth}
-    \raggedleft\small\color{pn-text-secondary}
-    \ifthenelse{\equal{\pn@docprotocol}{}}{}{%
-      \pn@str@protocol: \pn@docprotocol\\
-    }
-    \pn@str@date: \pn@docdate%
-    \ifthenelse{\equal{\pn@docversion}{}}{}{%
-      \\\pn@str@version: \pn@docversion%
-    }
-  \end{minipage}
-  \vspace{6pt}
-  
-  \ifthenelse{\equal{\pn@docsubject}{}}{}{%
-    \noindent{\small\color{pn-text-muted}\pn@str@subject:}\\[1pt]
-    \noindent{\large\color{pn-text}\textbf{\pn@docsubject}}\\[8pt]
-  }
-}
-
-%% ========================================================================
-%% TITLE PAGE (for reports/legal docs)
-%% ========================================================================
-
-\newcommand{\pnMakeTitlePage}{%
-  \begin{titlepage}
-    \centering
-    \vspace*{2cm}
-    
-    % Logo
-    \pnInsertLogo[3cm]
-    
-    \vspace{1cm}
-    
-    % Wordmark
-    \pnWordmark[28pt]
-    
-    \vspace{0.3cm}
-    {\color{pn-text-secondary}\large Associazione di Promozione Sociale}
-    
-    \vspace{2cm}
-    
-    % Decorative rule
-    {\color{pn-rule}\rule{0.4\textwidth}{2pt}}
-    
-    \vspace{1cm}
-    
-    % Document title
+  \hspace{0.03\textwidth}%
+  \begin{minipage}[c]{0.85\textwidth}
+    \pnWordmark[26pt]\\[4pt]
     \ifthenelse{\equal{\pn@doctitle}{}}{}{%
-      {\Huge\color{pn-text}\textbf{\pn@doctitle}}
-      \vspace{0.5cm}
-    }
-    
-    % Subtitle
+      {\large\color{pn-primary}\headlinefont\textbf{\pn@doctitle}}\\[2pt]
+    }%
     \ifthenelse{\equal{\pn@docsubtitle}{}}{}{%
-      {\Large\color{pn-text-secondary}\pn@docsubtitle}
-      \vspace{0.5cm}
+      {\normalsize\color{pn-text-secondary}\poppinsfont\pn@docsubtitle}\\[2pt]
+    }%
+    {\small\color{pn-text-secondary}\poppinsfont
+      \pn@website \quad|\quad \pn@email
     }
-    
-    \vspace{1cm}
-    
-    % Decorative rule
-    {\color{pn-rule}\rule{0.4\textwidth}{2pt}}
-    
-    \vfill
-    
-    % Footer info
-    {\small\color{pn-text-muted}%
-      \ifthenelse{\equal{\pn@docversion}{}}{}{%
-        \pn@str@version~\pn@docversion\quad|\quad%
-      }%
-      \pn@docdate%
-    }
-    
-    \vspace{1cm}
-  \end{titlepage}
+  \end{minipage}%
+  \par\vspace{12pt}
+  {\color{pn-rule}\rule{\textwidth}{1.5pt}}
+  \par\vspace{16pt}
 }
-
-%% ========================================================================
-%% CLOSING / SIGNATURE
-%% ========================================================================
 
 \newcommand{\pnClosing}[1][Cordiali saluti,]{%
   \vspace{1.5cm}
