@@ -154,6 +154,8 @@
   {\poppinsmedium\fontsize{#1}{#1}\selectfont\color{pn-primary}PoliNetwork}%
 }
 
+% Render a rounded metadata pill.
+% Parameter: #1 = short label text shown inside the pill.
 \newcommand{\pnMetaPill}[1]{%
   \tikz[baseline=(pill.base)]{
     \node[
@@ -167,6 +169,8 @@
   }%
 }
 
+% Render a compact metadata link/card with a title and description.
+% Parameters: #1 = title/emphasis text, #2 = supporting description text.
 \newcommand{\pnMetaLink}[2]{%
   \tikz[baseline=(link.base)]{
     \node[
@@ -184,6 +188,10 @@
     };
   }%
 }
+
+% Example usage:
+% \pnMetaPill{Associazione studentesca}
+% \pnMetaLink{Sito web}{polinetwork.org}
 
 % Make the document header with website-inspired spacing and typography
 \newcommand{\pnMakeHeader}{%
@@ -289,10 +297,14 @@
   \textcolor{pn-primary}{\textbf{#1}}%
 }
 
+% Render a lead paragraph in the package's secondary text style.
+% Parameter: #1 = introductory or summary text shown below a heading.
 \newcommand{\pnLead}[1]{%
   {\large\color{pn-text-secondary}\dmsansfont #1\par}%
 }
 
+% Render an information card with a highlighted title and body copy.
+% Parameters: #1 = card title, #2 = descriptive body text.
 \newcommand{\pnInfoCard}[2]{%
   \begin{tikzpicture}
     \node[
@@ -311,6 +323,10 @@
     };
   \end{tikzpicture}%
 }
+
+% Example usage:
+% \pnLead{PoliNetwork promuove iniziative studentesche, tecnologiche e culturali.}
+% \pnInfoCard{Contatti}{Scrivici a info@polinetwork.org per collaborazioni e supporto.}
 
 %% ========================================================================
 %% HORIZONTAL RULE

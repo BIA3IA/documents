@@ -190,9 +190,6 @@
 \let\headlinefont\poppinsfont
 \let\labelfont\redhattextfont
 
-% Tolleranza per giustificazione testo (riduce Overfull \hbox)
-\tolerance=1000
-
 %% ========================================================================
 %% PARAGRAPH & SPACING
 %% ========================================================================
@@ -200,12 +197,10 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setstretch{1.25}
-\setlength{\emergencystretch}{4em}
-\raggedbottom
-
 % Tolleranza per giustificazione testo (riduce Overfull \hbox)
 \tolerance=1000
 \emergencystretch=3em
+\raggedbottom
 
 % Line color for body text
 \color{pn-text}
